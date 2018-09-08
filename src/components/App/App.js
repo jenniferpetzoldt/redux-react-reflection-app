@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import Header from "../Header/Header.js";
+import QuestionOne from '../QuestionOne/QuestionOne.js';
+import QuestionTwo from '../QuestionTwo/QuestionTwo.js';
+import QuestionThree from '../QuestionThree/QuestionThree.js';
+import QuestionFour from '../QuestionFour/QuestionFour.js';
+import QuestionFive from '../QuestionFive/QuestionFive.js';
+import Admin from '../Admin/Admin.js';
+
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
-        </header>
-        <br/>
-      </div>
+      <Router>
+        <div className="App">
+          <Header />
+          <br />
+          <Route exact path="/" component={QuestionOne} />
+          <Route path="/2" component={QuestionTwo} />
+          <Route path="/3" component={QuestionThree} />
+          <Route path="/4" component={QuestionFour} />
+          <Route path="/5" component={QuestionFive} />
+          <Route path="/admin" component={Admin} />
+        </div>
+      </Router>
     );
   }
 }
