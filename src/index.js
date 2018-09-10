@@ -7,9 +7,16 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+const surveyData = (state = {}, action) => {
+    if(action.type === 'Add_Response') {
+        return action.payload;
+    }
+    return state;
+}
+
 const storeInstance = createStore(
     combineReducers({
-
+        surveyData,
     }),
 );
 
