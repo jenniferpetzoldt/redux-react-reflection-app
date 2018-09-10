@@ -3,8 +3,18 @@ import React, { Component } from 'react';
 class QuestionFive extends Component {
     render() {
         return (
-            <h1>Question 5</h1>
-        )
+            <div>
+                <card>
+                    <div>
+                        <div>
+                            <h1>Thank You!</h1>
+                            {/* takes you back to be beginning of the survey and resets */}
+                            <button>Leave New Feedback</button>
+                        </div>
+                    </div>
+                </card >
+            </div>
+        );
     }
 }
 

@@ -3,7 +3,21 @@ import React, { Component } from 'react';
 class Admin extends Component {
     render() {
         return (
-            <h1>Admin</h1>
+            // header changes to FeedBack Results!
+            <div>
+                <table>
+                    <thead>
+                       <tr>
+                           <th>Feeling</th>
+                           <th>Comprehension</th>
+                           <th>Support</th>
+                           <th>Comments</th>
+                           <th>Delete</th>
+                       </tr>
+                    </thead>
+                </table>
+            </div>
+            
         )
     }
 }
