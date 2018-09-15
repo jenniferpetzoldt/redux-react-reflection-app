@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = reduxState => ({
+    reduxState,
+});
 
 class QuestionFive extends Component {
     render() {
@@ -18,4 +23,4 @@ class QuestionFive extends Component {
     }
 }
 
-export default QuestionFive;
+export default connect(mapStateToProps)(QuestionFive);

@@ -1,6 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = reduxState => ({
+    reduxState,
+});
 
 class QuestionFour extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            response: '',
+        }
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            response: event.target.value
+        });
+    }
+
+    handleClick = () => {
+        this.props.dispatch({type: 'ADD_RESPONSE', payload: this.state.response})
+        this.props.history.push('/5');
+    }
+
     render() {
         return (
             <div>
@@ -9,12 +32,12 @@ class QuestionFour extends Component {
                     <div>
                         <div>
                             <h1>Any Comments you want to leave?</h1>
-                            <input type="number" placeholder="leave comment here" />
+                            <input type="text" placeholder="leave comment here" onChange={this.handleChange}/>
                         </div>
                         <div>
                             <h1>Submit</h1>
                             {/* This button should submit the whole form */}
-                            <button>Check</button>
+                            <button onClick={this.handleClick}>Check</button>
                         </div>
                     </div>
                 </card >
@@ -23,4 +46,4 @@ class QuestionFour extends Component {
     }
 }
 
-export default QuestionFour;
+export default connect(mapStateToProps)(QuestionFour);
