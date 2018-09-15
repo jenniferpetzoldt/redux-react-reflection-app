@@ -9,18 +9,18 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            response: '',
+            feeling: '',
+            }
         }
-    }
 
     handleChange = (event) => {
         this.setState({
-            response: event.target.value
+                feeling: event.target.value
         });
     }
 
     handleClick = () => {
-        this.props.dispatch({type: 'ADD_RESPONSE', payload: this.state.response})
+        this.props.dispatch({type: 'ADD_FEELING', payload: this.state.feeling})
         this.props.history.push('/2');
     }
 

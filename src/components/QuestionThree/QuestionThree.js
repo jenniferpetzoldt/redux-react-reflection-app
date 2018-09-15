@@ -9,18 +9,18 @@ class QuestionThree extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            response: '',
+            support: '',
+            }
         }
-    }
 
     handleChange = (event) => {
         this.setState({
-            response: event.target.value
+                support: event.target.value,
         });
     }
 
     handleClick = () => {
-        this.props.dispatch({type: 'ADD_RESPONSE', payload: this.state.response})
+        this.props.dispatch({type: 'ADD_SUPPORT', payload: this.state.support})
         this.props.history.push('/4');
     }
 

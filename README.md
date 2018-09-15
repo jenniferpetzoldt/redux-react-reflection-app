@@ -24,25 +24,25 @@ npm run client
 
 ### ADD NEW FEEDBACK
 
-- [ ] use Redux to store your data across views.
+- [X] use Redux to store your data across views.
 
-- [ ] Create a multi-part form that allows users to leave feedback for today. 
-- [ ] There will be 4 views for the form parts.
+- [X] Create a multi-part form that allows users to leave feedback for today. 
+- [X] There will be 4 views for the form parts.
 The parts:
-- [ ] How are you feeling today?
+- [X] How are you feeling today?
 ![feeling](wireframes/page-one.png)
-- [ ] How well are you understanding the content?
+- [X] How well are you understanding the content?
 ![understanding](wireframes/page-two.png)
-- [ ] How well are you being supported?
+- [X] How well are you being supported?
 ![support](wireframes/page-three.png)
-- [ ] Any comments you want to leave?
+- [X] Any comments you want to leave?
 ![comments](wireframes/page-four.png)
 
-- [ ] While there is no nav bar, each part of the form should be at its own route. 
-- [ ] Clicking next should move the user to the appropriate step in the process.
+- [X] While there is no nav bar, each part of the form should be at its own route. 
+- [X] Clicking next should move the user to the appropriate step in the process.
 
  - [ ] When the form is complete, save the submission in the database. 
- - [ ] The user should see a submission success page.
+ - [X] The user should see a submission success page.
  ![understanding](wireframes/page-five.png)
 
 ### DISPLAY FEEDBACK

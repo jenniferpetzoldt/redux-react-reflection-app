@@ -7,9 +7,17 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const surveyData = (state = [], action) => {
-    if(action.type === 'ADD_RESPONSE') {
-        return [...state, action.payload];
+const surveyData = (state = {}, action) => {
+    if(action.type === 'ADD_FEELING') {
+        return {...state, feeling: action.payload};
+    } else if (action.type === 'ADD_UNDERSTANDING'){
+        return {...state, understanding: action.payload};
+    } else if (action.type === 'ADD_SUPPORT'){
+        return {...state, support: action.payload};
+    }else if (action.type === 'ADD_COMMENTS'){
+        return {...state, comments: action.payload};
+    }else if(action.type === 'CLEAR_FORM') {
+        state = {}
     }
     return state;
 }
