@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
@@ -22,9 +22,17 @@ const surveyData = (state = {}, action) => {
     return state;
 }
 
+const feedbacks = (state = [], action) => {
+    if(action.type === 'UPDATE_FEEDBACK') {
+        return action.payload;
+    }
+    return state;
+}
+
 const storeInstance = createStore(
     combineReducers({
         surveyData,
+        feedbacks
     }),
     applyMiddleware(logger),
 );

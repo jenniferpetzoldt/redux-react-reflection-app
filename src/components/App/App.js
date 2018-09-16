@@ -7,7 +7,7 @@ import QuestionThree from '../QuestionThree/QuestionThree.js';
 import QuestionFour from '../QuestionFour/QuestionFour.js';
 import QuestionFive from '../QuestionFive/QuestionFive.js';
 import Admin from '../Admin/Admin.js';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route} from 'react-router-dom';
 
 class App extends Component {
   render() {

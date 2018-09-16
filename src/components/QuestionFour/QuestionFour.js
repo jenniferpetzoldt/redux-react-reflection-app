@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Card, TextField, Button, Grid } from '@material-ui/core'
+
 
 const mapStateToProps = reduxState => ({
     reduxState,
@@ -10,37 +12,39 @@ class QuestionFour extends Component {
         super(props);
         this.state = {
             comments: '',
-            }
         }
-    
+    }
+
     handleChange = (event) => {
         this.setState({
-                comments: event.target.value,
+            comments: event.target.value,
         });
     }
 
     handleClick = () => {
-        this.props.dispatch({type: 'ADD_COMMENTS', payload: this.state.comments})
+        this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
         this.props.history.push('/5');
     }
 
+
     render() {
         return (
-            <div>
-                <h1>4 of 4 pages</h1>
-                <card>
-                    <div>
-                        <div>
-                            <h1>Any Comments you want to leave?</h1>
-                            <input type="text" placeholder="leave comment here" onChange={this.handleChange}/>
-                        </div>
-                        <div>
-                            <h1>Submit</h1>
-                            {/* This button should submit the whole form */}
-                            <button onClick={this.handleClick}>Check</button>
-                        </div>
-                    </div>
-                </card >
+            <div className="view">
+                <h3>3 of 4 pages</h3>
+                <div className="color"></div>
+                <Grid container justify="center">
+                    <Grid item xs={6}>
+                        <Card className="question">
+                            <div id="number" >
+                                <h3>Any Comments you want to leave?</h3>
+                                <TextField label="comment here" onChange={this.handleChange} type="text" margin="normal" />
+                            </div>
+                            <Grid item xs={6}>
+                                <Button className="next" varient="raised" onClick={this.handleClick}>Next</Button>
+                            </Grid>
+                        </Card >
+                    </Grid>
+                </Grid>
             </div>
         );
     }

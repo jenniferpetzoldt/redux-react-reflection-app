@@ -1,29 +1,53 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
+import { Card, Grid, Button } from '@material-ui/core';
 
 const mapStateToProps = reduxState => ({
     reduxState,
 });
 
 class QuestionFive extends Component {
+
+    componentDidMount() {
+        this.addFeedback();
+    }
+
+    addFeedback = () => {
+        const surveyData = this.props.reduxState.surveyData;
+        axios({
+            method: 'POST',
+            url: '/feedbacks',
+            data: surveyData,
+        }).then((response) => {
+            console.log('4th andswer in axios', this.props.reduxState.surveyData);
+        }).catch((error) => {
+            console.log('POST error', error);
+            alert('Unable to send data.');
+        });
+    }
+
     handleClick = () => {
-        this.props.dispatch({type: 'CLEAR_FORM'})
+        this.props.dispatch({ type: 'CLEAR_FORM' })
         this.props.history.push('/');
     }
 
     render() {
         return (
-            <div>
-                <card>
-                    <div>
+            <Grid container justify="center">
+                <Grid item xs={6}>
+                    <Card className="question">
                         <div>
-                            <h1>Thank You!</h1>
-                            {/* takes you back to be beginning of the survey and resets */}
-                            <button onClick={this.handleClick}>Leave New Feedback</button>
+                            <div>
+                                <h1>Thank You!</h1>
+                                <Grid item xs={6}>
+                                    <Button id="reset" variant="contained" color="primary" onClick={this.handleClick}>Leave New Feedback</Button>
+                                </Grid>
+                            </div>
                         </div>
-                    </div>
-                </card >
-            </div>
+                    </Card >
+                </Grid>
+            </Grid>
         );
     }
 }

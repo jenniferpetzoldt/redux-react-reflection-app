@@ -5,13 +5,24 @@ const router = express.Router();
 
 router.get('/', (req,res)=>{
     const query = 'SELECT * FROM feedback;';
-    pool.query(queryText)
+    pool.query(query)
     .then((result) => {res.send(result.rows);})
     .catch((error)=> {
         console.log ('Error completeng SELECT feedback query', error);
         res.sendStatus(500);
     });
 });
+
+router.delete('/:id', (req,res)=>{
+    const idOfFeedbackToDelete = req.params.id;
+    const query = `DELETE FROM "feedback" WHERE "id" = $1;`;
+    pool.query(query,[idOfFeedbackToDelete]). then ((result)=> {
+        res.sendStatus(200);
+    }).catch((error)=> {
+        console.log('Error in delete', error);
+        res.sendStatus(500);
+    })
+})
 
 router.post('/', (req,res) => {
     const newFeedback = req.body;
