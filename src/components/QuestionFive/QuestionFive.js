@@ -8,11 +8,11 @@ const mapStateToProps = reduxState => ({
 });
 
 class QuestionFive extends Component {
-
+    //struggled with asycronis functions. this sloved the proplem the have the next page render run the function
     componentDidMount() {
         this.addFeedback();
     }
-
+    //adds feedback to database
     addFeedback = () => {
         const surveyData = this.props.reduxState.surveyData;
         axios({
@@ -27,6 +27,7 @@ class QuestionFive extends Component {
         });
     }
 
+    //clears reduxstate for surveyData and pushes user back to first question
     handleClick = () => {
         this.props.dispatch({ type: 'CLEAR_FORM' })
         this.props.history.push('/');

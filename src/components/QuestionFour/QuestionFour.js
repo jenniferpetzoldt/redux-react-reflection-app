@@ -14,13 +14,13 @@ class QuestionFour extends Component {
             comments: '',
         }
     }
-
+    //adds comments to state
     handleChange = (event) => {
         this.setState({
             comments: event.target.value,
         });
     }
-
+    //sends action and updates reduxState and sends user to confirmation page
     handleClick = () => {
         this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
         this.props.history.push('/5');

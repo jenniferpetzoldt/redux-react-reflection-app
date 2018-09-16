@@ -13,13 +13,13 @@ class QuestionThree extends Component {
             support: '',
         }
     }
-
+    //adds support to state
     handleChange = (event) => {
         this.setState({
             support: event.target.value,
         });
     }
-
+    //sends action and updates reduxState and sends user to next question
     handleClick = () => {
         this.props.dispatch({ type: 'ADD_SUPPORT', payload: this.state.support })
         this.props.history.push('/4');

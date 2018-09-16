@@ -3,6 +3,7 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
+//sends data to feedbacks reducer
 router.get('/', (req,res)=>{
     const query = 'SELECT * FROM feedback;';
     pool.query(query)
@@ -13,6 +14,7 @@ router.get('/', (req,res)=>{
     });
 });
 
+//deletes feedback from data base by specific id with data sanitization
 router.delete('/:id', (req,res)=>{
     const idOfFeedbackToDelete = req.params.id;
     const query = `DELETE FROM "feedback" WHERE "id" = $1;`;
@@ -24,6 +26,8 @@ router.delete('/:id', (req,res)=>{
     })
 })
 
+
+//adds data from reduxstate surveyData
 router.post('/', (req,res) => {
     const newFeedback = req.body;
     const query = `INSERT INTO feedback ("feeling", "understanding", "support", "comments")

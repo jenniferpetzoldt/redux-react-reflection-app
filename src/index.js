@@ -7,6 +7,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+//reducer to handle reduxState for client input
 const surveyData = (state = {}, action) => {
     if(action.type === 'ADD_FEELING') {
         return {...state, feeling: action.payload};
@@ -22,6 +23,7 @@ const surveyData = (state = {}, action) => {
     return state;
 }
 
+//reducer to handle feedbacks on admin view
 const feedbacks = (state = [], action) => {
     if(action.type === 'UPDATE_FEEDBACK') {
         return action.payload;

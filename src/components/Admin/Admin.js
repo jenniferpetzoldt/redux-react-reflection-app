@@ -10,10 +10,11 @@ const mapStateToProps = reduxState => ({
 });
 
 class Admin extends Component {
+    // populates talbe with data at page load
     componentDidMount() {
         this.getFeedbacks();
     }
-
+    //deletes feedback from database
     deleteFeedback = (feedbackId) => {
         console.log('in deleteFeedback', feedbackId);
         axios({
@@ -26,7 +27,7 @@ class Admin extends Component {
             console.log('delete error', error);
         });
     }
-
+    //pulls current data from database - called in componentDidMount
     getFeedbacks = () => {
         axios({
             method: 'GET',

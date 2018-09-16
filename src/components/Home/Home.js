@@ -14,12 +14,14 @@ class Home extends Component {
         }
     }
 
+    //adds feeling to state   
     handleChange = (event) => {
         this.setState({
             feeling: event.target.value
         });
     }
 
+    //sends feeling to reduxState and sends the user to next question
     handleClick = () => {
         this.props.dispatch({ type: 'ADD_FEELING', payload: this.state.feeling })
         this.props.history.push('/2');

@@ -7,7 +7,7 @@ const mapStateToProps = reduxState => ({
 });
 
 class TableData extends Component {
-
+//calls delete function and passes in specific feedback id
 handleClick = () => {
     this.props.deleteFeedback(this.props.feedback.id);
 }

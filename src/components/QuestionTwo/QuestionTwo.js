@@ -13,13 +13,13 @@ class QuestionTwo extends Component {
             understanding: '',
         }
     }
-
+    //adds understanding to state
     handleChange = (event) => {
         this.setState({
             understanding: event.target.value,
         });
     }
-
+    //sends action and updates reduxState and sends user to next question
     handleClick = () => {
         this.props.dispatch({ type: 'ADD_UNDERSTANDING', payload: this.state.understanding })
         this.props.history.push('/3');
